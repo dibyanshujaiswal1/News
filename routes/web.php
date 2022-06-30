@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController\CategoryController;
 use App\Http\Controllers\AdminController\MainpageController;
+use App\Http\Controllers\AdminController\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,15 @@ Route::get('change-status',[CategoryController::class,'changeStatus']);
 Route::get('edit-category/{id}',[CategoryController::class,'EditCategory']);
 Route::post('update-category/{id}',[CategoryController::class,'UpdateCategory'])->name('update.category');
 Route::get('delete-Category/{id}',[CategoryController::class,'Delete'])->name('delete.category');
+//for subcategory
+Route::get('add-subcategory',[SubCategoryController::class,'AddSubCategory']);
+Route::post('store-subcategory',[SubCategoryController::class,'StoreSubCategory'])->name('store.subcategory');
+Route::get('view-subcategory',[SubCategoryController::class,'SubCategoryList'])->name('view.subcategory');
+Route::get('edit-subcategory/{id}',[SubCategoryController::class,'EditSubCategory']);
+Route::post('update-subcategory/{id}',[SubCategoryController::class,'UpdateSubCategory'])->name('update.Subcategory');
+Route::get('delete-subCategory/{id}',[SubCategoryController::class,'Delete'])->name('delete.subcategory');
+Route::get('changeStatus',[SubCategoryController::class,'changeSubCategoryStatus']);
+
+
+
+

@@ -24,7 +24,7 @@
                             <td>{{$key+1}}</td>
                             <td>{{$categories->name}}</td>
                             <td>
-                            <input data-id="{{$categories->id}}" id="cc" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $categories->status ? 'checked' : '' }}/>
+                                <input data-id="{{$categories->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"  {{ $categories->status == 1 ? 'checked' : '' }} >
                             </td>
                             <td>
                                 <a href="{{url('edit-category',$categories->id)}}" class="btn btn-info">Edit</a>
@@ -38,6 +38,29 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.toggle-class').click(function(){
+        var status = $(this).children().prop('checked') == true ? 1 : 0;
+     var category_id = $(this).children().data('id');
+        console.log(category_id)
+            $.ajax({
+                type: "GET",
+                dataType : "json",
+                url: 'change-status',
+                data : {'status': status, 'category_id': category_id},
+                headers: {
+          'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+                success: function(data){
+                    console.log('Success')
+                }
+            });
 
+    });
+    });
+</script>
 
 @endsection

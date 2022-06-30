@@ -34,7 +34,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="{{route('view.category')}}"><i class="ti-more"></i>All Category</a></li>
-                            <li><a href="calendar.html"><i class="ti-more"></i>Sub Category</a></li>
+                            <li><a href="{{route('view.subcategory')}}"><i class="ti-more"></i>Sub Category</a></li>
                         </ul>
                     </li>
 
