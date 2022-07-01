@@ -47,7 +47,7 @@ class CategoryController extends Controller
     public function Delete($id){
         $data=Category::find($id);
         $data->delete();
-        return redirect('view-category');
+        return redirect('/admin/view-category');
     }
 }
 

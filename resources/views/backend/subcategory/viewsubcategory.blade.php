@@ -6,7 +6,7 @@
         <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">SubCategory List &emsp;&emsp;&emsp;<a class="collapse-item"
-                    href="{{url('add-subcategory')}}">Add SubCategory</a></h6>
+                    href="{{url('/admin/add-subcategory')}}">Add SubCategory</a></h6>
         </div>
             <div class="table-responsive">
                 <table id="example5" class="table table-bordered table-striped" style="width:100%">
@@ -24,13 +24,13 @@
                         <tr>
                             <td>{{$key+1}}</td>
                           
-                            <td>{{$subcategories->category->name}}</td>
+                            <td>@if(!empty($subcategories->category->name)){{$subcategories->category->name}}@endif</td>
                             <td>{{$subcategories->name}}</td>
                             <td>
-                                <input data-id="{{$subcategories->id}}" class="toggle-class" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="Inactive"  {{ $subcategories->status == 1 ? 'checked' : ''}} >
+                            <input  class="categoryinput" type="checkbox"   data-id="{{$subcategories->id}}" {{ $subcategories->status ? 'checked' : '' }}>
                             </td>
                             <td>
-                                <a href="{{url('edit-subcategory',$subcategories->id)}}" class="btn btn-info">Edit</a>
+                                <a href="{{url('/admin/edit-subcategory',$subcategories->id)}}" class="btn btn-info">Edit</a>
                                 <a href="{{route('delete.subcategory',$subcategories->id)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -41,4 +41,26 @@
         </div>
     </div>
 </div>
+<script>
+        $(function() {
+            $('.categoryinput').change(function(e) {
+                e.preventDefault();
+                var status = $(this).prop('checked') == true ? 1 : 0;
+                var subcategorystatus_id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '/admin/changestatus',
+                    data: {
+                        'status': status,
+                        'subcategorystatus_id': subcategorystatus_id
+                    },
+                    success: function(data) {
+                        // console.log(data.success)
+                        window.location.href="/admin/view-subcategory"
+                    }
+                });
+            })
+        })
+    </script>
 @endsection
