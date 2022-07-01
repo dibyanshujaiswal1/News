@@ -36,23 +36,29 @@ class SubCategoryController extends Controller
         return view('backend.subcategory.editsubcategory',compact('data','editcategory'));
     }
     public function UpdateSubCategory(Request $request, $id){
+        
         $data=SubCategory::find($id);
-        $data->name=$request->name;
+        if($request->category_id){
         $data->category_id=$request->category_id;
+    }
+    else{
+        $data->category_id=1;
+    }
+        $data->name=$request->name;
         $data->save();
-        return redirect('view-subcategory');
+        return redirect('admin/view-subcategory');
     }
     public function Delete($id){
         $data=SubCategory::find($id);
         $data->delete();
-        return redirect('view-subcategory');
+        return redirect('/admin/view-subcategory');
     }
-    public function changeUserStatus(Request $request)
+    public function changeSubCategoryStatus(Request $request)
     {
-        $subcategory = SubCategory::find($request->subcategory_id);
-        $subcategory->status = $request->status;
-        $subcategory->save();
-  
-        return response()->json(['success'=>'subcategory status change successfully.']);
+        $subcategories = SubCategory::find($request->subcategorystatus_id);
+        $subcategories->status = $request->status;
+        $subcategories->save();
+        return response()->json(['success'=>'User status change successfully.']);
+
     }
 }

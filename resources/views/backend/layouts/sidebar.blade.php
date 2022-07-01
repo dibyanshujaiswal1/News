@@ -18,7 +18,7 @@
                 <ul class="sidebar-menu" data-widget="tree">
 
                     <li>
-                        <a href="index.html">
+                        <a href="{{url('admin-dashboard')}}">
                             <i data-feather="pie-chart"></i>
                             <span>Dashboard</span>
                         </a>
@@ -61,11 +61,11 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="profile.html"><i class="ti-more"></i>Profile</a></li>
-                            <li><a href="invoice.html"><i class="ti-more"></i>Invoice</a></li>
+                            <li><a href="{{route('view.logo')}}"><i class="ti-more"></i>Logo</a></li>
+                            <li><a href="{{route('view.banner')}}"><i class="ti-more"></i>Banner</a></li>
                             <li><a href="gallery.html"><i class="ti-more"></i>Gallery</a></li>
-                            <li><a href="faq.html"><i class="ti-more"></i>FAQs</a></li>
-                            <li><a href="timeline.html"><i class="ti-more"></i>Timeline</a></li>
+                            <li><a href="faq.html"><i class="ti-more"></i>News</a></li>
+                            <li><a href="timeline.html"><i class="ti-more"></i>Blogs</a></li>
                         </ul>
                     </li>
 
