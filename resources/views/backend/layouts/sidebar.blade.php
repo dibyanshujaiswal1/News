@@ -63,8 +63,8 @@
                         <ul class="treeview-menu">
                             <li><a href="{{route('view.logo')}}"><i class="ti-more"></i>Logo</a></li>
                             <li><a href="{{route('view.banner')}}"><i class="ti-more"></i>Banner</a></li>
-                            <li><a href="gallery.html"><i class="ti-more"></i>Gallery</a></li>
-                            <li><a href="faq.html"><i class="ti-more"></i>News</a></li>
+                            <li><a href="{{route('view.video')}}"><i class="ti-more"></i>Video</a></li>
+                            <li><a href="{{route('view.article')}}"><i class="ti-more"></i>Article</a></li>
                             <li><a href="timeline.html"><i class="ti-more"></i>Blogs</a></li>
                         </ul>
                     </li>

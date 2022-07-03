@@ -18,11 +18,13 @@
 <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
     <div class="wrapper">
        @include("backend.layouts.header")
+    
         <!-- Left side column. contains the logo and sidebar -->
        @include("backend.layouts.sidebar")
          <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
        @yield('content')
+       
         </div>
         <!-- /.content-wrapper -->
        @include("backend.layouts.footer")

@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminController\ArticleController;
 use App\Http\Controllers\AdminController\BannerController;
 use App\Http\Controllers\AdminController\CategoryController;
 use App\Http\Controllers\AdminController\LogoController;
 use App\Http\Controllers\AdminController\MainpageController;
 use App\Http\Controllers\AdminController\SubCategoryController;
+use App\Http\Controllers\AdminController\VideoController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +54,21 @@ Route::get('/view-banner',[BannerController::class,'ViewBanner'])->name('view.ba
 Route::get('/edit-banner/{id}',[BannerController::class,'EditBanner']);
 Route::post('update-banner/{id}',[BannerController::class,'UpdateBanner'])->name('update.banner');
 Route::get('delete-banner/{id}',[BannerController::class,'DeleteBanner'])->name('delete.banner');
-
-
+//for article
+Route::get('/create-article',[ArticleController::class,'CreateArticle']);
+Route::post('/store-article',[ArticleController::class,'StoreArticle'])->name('store.article');
+Route::get('/view-article',[ArticleController::class,'ViewArticle'])->name('view.article');
+Route::get('/change-article-status',[ArticleController::class,'changeArticleStatus']);
+Route::get('/edit-article/{id}',[ArticleController::class,'EditArticle']);
+Route::post('update-article/{id}',[ArticleController::class,'UpdateArticle'])->name('update.article');
+Route::get('delete-article/{id}',[ArticleController::class,'DeleteArticle'])->name('delete.article');
+Route::get('/article-details/{id}',[ArticleController::class,'Articledetails'])->name('article.details');
+//for video
+Route::get('/create-video',[VideoController::class,'CreateVideo']);
+Route::post('store-video',[VideoController::class,'StoreVideo'])->name('store.video');
+Route::get('/view-video',[VideoController::class,'ViewVideo'])->name('view.video');
+Route::get('/change-video-status',[VideoController::class,'changeVideoStatus']);
+Route::get('/edit-video/{id}',[VideoController::class,'EditVideo']);
+Route::post('update-video/{id}',[VideoController::class,'UpdateVideo'])->name('update.video');
+Route::get('delete-video/{id}',[VideoController::class,'DeleteVideo'])->name('delete.video');
 });
