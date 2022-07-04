@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController\BannerController;
 use App\Http\Controllers\AdminController\CategoryController;
 use App\Http\Controllers\AdminController\LogoController;
 use App\Http\Controllers\AdminController\MainpageController;
+use App\Http\Controllers\AdminController\PostController;
 use App\Http\Controllers\AdminController\SubCategoryController;
 use App\Http\Controllers\AdminController\VideoController;
 use App\Models\Article;
@@ -71,4 +72,7 @@ Route::get('/change-video-status',[VideoController::class,'changeVideoStatus']);
 Route::get('/edit-video/{id}',[VideoController::class,'EditVideo']);
 Route::post('update-video/{id}',[VideoController::class,'UpdateVideo'])->name('update.video');
 Route::get('delete-video/{id}',[VideoController::class,'DeleteVideo'])->name('delete.video');
+//for post
+Route::get('/create-post',[PostController::class,'CreatePost']);
+Route::post('store-post',[PostController::class,'StorePost'])->name('store.post');
 });

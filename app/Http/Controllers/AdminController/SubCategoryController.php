@@ -23,7 +23,7 @@ class SubCategoryController extends Controller
             'name'=>$request->name,
             'created_at'=>Carbon::now()
         ]);
-        return redirect('view-subcategory')->with('message','Sub Category added Successfully!!');
+        return redirect('/admin/view-subcategory')->with('message','Sub Category added Successfully!!');
     }
     public function SubCategoryList(){
         $getallsubcategory=SubCategory::with('category')->orderby('id','desc')->get();

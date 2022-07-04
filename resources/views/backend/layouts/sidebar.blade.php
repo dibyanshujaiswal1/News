@@ -65,7 +65,7 @@
                             <li><a href="{{route('view.banner')}}"><i class="ti-more"></i>Banner</a></li>
                             <li><a href="{{route('view.video')}}"><i class="ti-more"></i>Video</a></li>
                             <li><a href="{{route('view.article')}}"><i class="ti-more"></i>Article</a></li>
-                            <li><a href="timeline.html"><i class="ti-more"></i>Blogs</a></li>
+                            <li><a href="{{url('/admin/create-post')}}"><i class="ti-more"></i>Post</a></li>
                         </ul>
                     </li>
 
